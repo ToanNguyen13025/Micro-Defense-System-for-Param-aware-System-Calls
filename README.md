@@ -75,12 +75,11 @@ Clone the repository and build:
 git clone https://github.com/ToanNguyen13025/Micro-Defense-System-for-Param-aware-System-Calls.git
 cd Micro-Defense-System-for-Param-aware-System-Calls
 make
-'''
+```
 
 The compiled binary will be generated in the project directory.
 
-**## ▶️ Usage
-**
+## ▶️ Usage
 Run the tracer with a target program. The tracer will fork a child process, attach to it using `ptrace`, and monitor all system calls issued by the child.
 
 ```bash
