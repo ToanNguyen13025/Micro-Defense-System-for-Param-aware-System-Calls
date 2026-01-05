@@ -36,6 +36,7 @@ This project aims to:
 ---
 
 ## 📁 Project Structure
+```
 Micro-Defense-System-for-Param-aware-System-Calls
 ├── src/
 │ ├── tracer.c # Main tracer logic
@@ -52,7 +53,7 @@ Micro-Defense-System-for-Param-aware-System-Calls
 ├── Makefile
 ├── README.md
 └── LICENSE
-
+```
 
 ---
 
