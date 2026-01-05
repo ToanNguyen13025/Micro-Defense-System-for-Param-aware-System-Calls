@@ -64,7 +64,7 @@ int chmod_90_policy(pid_t pid, char *arg0, char *arg1)
     }
 
     /* read pathname from child */
-    if (read_child_string(pid, path, path, sizeof(path)) < 0) {
+    if (read_child_string(pid, path_ptr, path, sizeof(path)) < 0) {
         fprintf(stderr,
                 "[chmod] Cannot read pathname\n");
         return 0;

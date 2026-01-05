@@ -49,7 +49,6 @@ int connect_42_policy(pid_t pid, char *arg0, char *arg1, char *arg2){
         return 0;
     }
 
-    int sockfd = atoi(arg0);
     unsigned long addr_ptr = strtoul(arg1, NULL, 10);
     socklen_t addrlen = (socklen_t)strtoul(arg2, NULL, 10);
 
@@ -64,8 +63,7 @@ int connect_42_policy(pid_t pid, char *arg0, char *arg1, char *arg2){
     struct sockaddr_storage ss;
     memset(&ss, 0, sizeof(ss));
 
-    if (read_child_mem(pid, addr_ptr, &ss,
-                       addrlen < sizeof(ss) ? addrlen : sizeof(ss)) < 0) {
+    if (read_child_mem(pid, addr_ptr, &ss, addrlen < sizeof(ss) ? addrlen : sizeof(ss)) < 0) {
         fprintf(stderr, "[connect] Cannot read sockaddr\n");
         return 0;
     }
