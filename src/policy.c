@@ -35,26 +35,39 @@ int check_policy(pid_t pid, long syscall, char *argv[]){
             }
             break;
         case 41:
+            if (!socket_41_policy(pid, argv[0], argv[1], argv[2])){
+                return 0;
+            }
             break;
         case 42:
-            break;
-        case 56:
-            break;
-        case 57:
-            break;
-        case 59: 
+            if (!connect_42_policy(pid, argv[0], argv[1], argv[2])){
+                return 0;
+            }
             break;
         case 62:
+            if (!kill_62_policy(pid, argv[0], argv[1])){
+                return 0;
+            }
             break;
-        case 85:
-            break;   
         case 90:
+            if (!chmod_90_policy(pid, argv[0], argv[1])){
+                return 0;
+            }
             break;  
         case 101:
+            if (!ptrace_101_policy(pid, argv[0], argv[1], argv[2], argv[3])){
+                return 0;
+            }
             break;
         case 105:
+            if (!setuid_105_policy(pid, argv[0])){
+                return 0;
+            }
             break;
         case 106:
+            if (!setgid_106_policy(pid, argv[0])){
+                return 0;
+            }
             break;   
         case 257:
             if (!openat_257_policy(pid, argv[0], argv[1], argv[2], argv[3])){
@@ -62,12 +75,14 @@ int check_policy(pid_t pid, long syscall, char *argv[]){
             }
             break;
         case 321:
+            if (!bpf_321_policy(pid, argv[0], argv[1], argv[2])){
+                    return 0;
+            }
             break;
         case 323:
-            break;
-        case 425:
-            break;
-        case 426:
+            if (!userfaultfd_323_policy(pid, argv[0])){
+                return 0;
+            }
             break;
         default:
             return 1;
